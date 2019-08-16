@@ -1,0 +1,25 @@
+<mvc:View controllerName="be.wl.FaceConvertor.controller.App" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m" xmlns:u="sap.ui.unified">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}">
+					<headerContent>
+						<u:FileUploader buttonOnly="true" icon="sap-icon://upload" iconOnly="true" sameFilenameAllowed="true" change=".onUploadFace"/>
+					</headerContent>
+					<content>
+						<List items="{/Faces}" headerText="Faces">
+							<items>
+								<ObjectListItem title="{Firstname} {Lastname}" type="Active" press="onListItemPress" number="{ID}">
+									<attributes>
+										<ObjectAttribute text="{Image}"/>
+										<ObjectAttribute text="{Vectors}"/>
+									</attributes>
+								</ObjectListItem>
+							</items>
+						</List>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

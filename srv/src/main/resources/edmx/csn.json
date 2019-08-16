@@ -1,0 +1,80 @@
+{
+  "namespace": "be.wl",
+  "definitions": {
+    "CatalogService": {
+      "kind": "service"
+    },
+    "CatalogService.Faces": {
+      "kind": "entity",
+      "@cds.persistence.name": "CATALOGSERVICE_FACES",
+      "query": {
+        "SELECT": {
+          "from": {
+            "ref": [
+              "be.wl.Faces"
+            ]
+          }
+        }
+      },
+      "elements": {
+        "ID": {
+          "@cds.persistence.name": "ID",
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "Firstname": {
+          "@cds.persistence.name": "FIRSTNAME",
+          "type": "cds.String"
+        },
+        "Lastname": {
+          "@cds.persistence.name": "LASTNAME",
+          "type": "cds.String"
+        },
+        "Vectors": {
+          "@cds.persistence.name": "VECTORS",
+          "type": "cds.String"
+        },
+        "Image": {
+          "@cds.persistence.name": "IMAGE",
+          "type": "cds.String"
+        }
+      },
+      "$syntax": "projection"
+    },
+    "be.wl.Faces": {
+      "kind": "entity",
+      "@cds.persistence.name": "BE_WL_FACES",
+      "elements": {
+        "ID": {
+          "@cds.persistence.name": "ID",
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "Firstname": {
+          "@cds.persistence.name": "FIRSTNAME",
+          "type": "cds.String"
+        },
+        "Lastname": {
+          "@cds.persistence.name": "LASTNAME",
+          "type": "cds.String"
+        },
+        "Vectors": {
+          "@cds.persistence.name": "VECTORS",
+          "type": "cds.String"
+        },
+        "Image": {
+          "@cds.persistence.name": "IMAGE",
+          "type": "cds.String"
+        }
+      }
+    }
+  },
+  "version": {
+    "csn": "1.0"
+  },
+  "meta": {
+    "creator": "CDS Compiler v1.15.0"
+  },
+  "$version": "1.0",
+  "@sql_mapping": "plain"
+}
