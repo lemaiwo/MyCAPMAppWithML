@@ -56,6 +56,8 @@ modules:
         properties:
           SAP_JWT_TRUST_ACL: '[{"clientid" : "*", "identityzone" : "*"}]'
       - name: ml-service
+    properties:
+      ALLOW_MOCKED_AUTH_HEADER: true
   - name: FaceConvertor
     type: html5
     path: FaceConvertor
@@ -90,7 +92,7 @@ resources:
       service: ml-foundation-trial-beta
       service-plan: standard
   - name: dest_MyCAPMWithMLApp
-    parameters:
-      service-plan: lite
-      service: destination
     type: org.cloudfoundry.managed-service
+    parameters:
+      service: destination
+      service-plan: lite

@@ -38,10 +38,33 @@ sap.ui.define([
 					MessageToast.show("New Face Created!");
 				}.bind(this)).catch(function () {
 					MessageToast.show("Error occured...");
-				}).then(function(){
+				}).then(function () {
 					//close always
 					this.onClose(oEvent);
 				}.bind(this));
+		},
+		onConvertFace: function (oEvent) {
+			var image = oEvent.getParameter("files")[0];
+
+			return ImageHandler.resize(image).then(function (resizedImage) {
+				return FaceService.getFaceFeatures(resizedImage.blob,image);
+			}).then(function (oVector) {
+				this.showVector(oVector);
+			}.bind(this)).catch(function () {
+				MessageToast.show("Error occured...");
+			});
+		},
+		showVector:function(oVector){
+			if (!this._oVectorDialog) {
+				this._oVectorDialog = sap.ui.xmlfragment("be.wl.FaceConvertor.view.dialog.Vector", this);
+			}
+			this._oVectorDialog.setModel(new JSONModel({
+				extraction: oVector
+			}), "vector");
+			this._oVectorDialog.open();
+		},
+		onCloseVector: function (oEvent) {
+			this._oVectorDialog && this._oVectorDialog.close();
 		}
 	});
 });

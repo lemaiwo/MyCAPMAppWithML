@@ -78,7 +78,7 @@ sap.ui.define([], function () {
 
 						var ctx = canvas.getContext('2d');
 						ctx.drawImage(image, 0, 0, width, height);
-						// var blob = me._toBlob(canvas, file.type);
+						var blob = me._toBlob(canvas, file.type);
 
 						// if (!isTooLarge) {
 						// early exit; no need to resize
@@ -97,7 +97,7 @@ sap.ui.define([], function () {
 						// 	}, file.type);
 						// } else {
 						resolve({
-							// blob: blob,
+							blob: blob,
 							uri: canvas.toDataURL(file.type)
 						}, true);
 						// }

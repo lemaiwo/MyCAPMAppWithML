@@ -1,9 +1,11 @@
-<mvc:View controllerName="be.wl.FaceConvertor.controller.App" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m" xmlns:u="sap.ui.unified">
+<mvc:View controllerName="be.wl.FaceConvertor.controller.App" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m"
+	xmlns:u="sap.ui.unified">
 	<Shell id="shell">
 		<App id="app">
 			<pages>
 				<Page id="page" title="{i18n>title}">
 					<headerContent>
+						<u:FileUploader buttonOnly="true" icon="sap-icon://action-settings" iconOnly="true" sameFilenameAllowed="true" change=".onConvertFace"/>
 						<u:FileUploader buttonOnly="true" icon="sap-icon://upload" iconOnly="true" sameFilenameAllowed="true" change=".onUploadFace"/>
 					</headerContent>
 					<content>

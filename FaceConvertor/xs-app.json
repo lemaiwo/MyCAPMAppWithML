@@ -13,6 +13,19 @@
       "csrfProtection": false
     },
     {
+      "source": "^/mlapi/(.*)$",
+      "target": "$1",
+      "authenticationType": "none",
+      "destination": "ml_api",
+      "csrfProtection": false
+    },
+    {
+      "source": "^/mlauth/(.*)$",
+      "target": "$1",
+      "destination": "ml_auth_api",
+      "csrfProtection": false
+    },
+    {
       "source": "^(.*)$",
       "target": "$1",
       "service": "html5-apps-repo-rt",
